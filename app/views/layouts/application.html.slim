@@ -1,0 +1,34 @@
+doctype html
+html
+  head
+    title
+      | CarQuiz
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = stylesheet_link_tag params[:controller] if Carquiz::Application.assets .find_asset("#{controller_name}.css")
+    /= javascript_include_tag "https://www.google.com/jsapi"
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = javascript_include_tag params[:controller] if Carquiz::Application.assets .find_asset("#{controller_name}.js")
+    = csrf_meta_tags
+  body[class="#{user_signed_in? ? 'header-fixed header-fixed-space' : ''}"]
+    = yield :style
+    .wrapper
+      - if devise_controller?
+        = yield
+      - else
+        .header-v6.header-classic-white.header-sticky
+          .navbar.mega-menu[role="navigation"]
+            .container
+              .menu-container
+                button.navbar-toggle[type="button" data-toggle="collapse" data-target=".navbar-responsive-collapse"]
+                  span.sr-only
+                    | Toggle navigation
+                  span.icon-bar
+                  span.icon-bar
+                  span.icon-bar
+                .navbar-brand
+              .collapse.navbar-collapse.navbar-responsive-collapse
+                .menu-container
+                  ul.nav.navbar-nav
+                    li.page-scroll
+                      = link_to 'Sing-out', destroy_user_session_path, method: :delete
+        = yield
