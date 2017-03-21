@@ -83,5 +83,5 @@ test:
 production:
   <<: *default
   database: carquiz_production
-  username: carquiz
+  username: <%= ENV['CAR_QUIZ_DATABASE_USERNAME'] %>
   password: <%= ENV['CAR_QUIZ_DATABASE_PASSWORD'] %>
