@@ -1,0 +1,17 @@
+- content_for :style do
+  css:
+    .container { position: relative };
+.container.content-xs
+  .row
+    .col-md-offset-2.col-md-8
+      = render 'layouts/flash'
+      h1.text-center Thank You
+
+      .text-center.margin-bottom-30
+        = image_tag 'thankyou-banner.png', class: 'img-responsive', style: 'display: inline-block'
+      h5.margin-bottom-30.text-center
+        | Thank you for visiting our site.
+        br
+        | We take your opinion seriously and we hope you visit us again.
+      .row.text-center.margin-bottom-30
+        = link_to 'Take you back to home page', root_path, class: 'btn-u btn-u-blue btn-u-lg rounded'

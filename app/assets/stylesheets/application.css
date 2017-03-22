@@ -20,3 +20,10 @@
  *= require header-v6
  *= require animate
  */
+.radio, .checkbox {
+    margin-top: 0 !important;
+}
+.radio-inline {
+    padding-left: 0 !important;
+    margin-right: 20px;
+}

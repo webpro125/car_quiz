@@ -13,5 +13,8 @@ Rails.application.config.assets.precompile +=  [
     'users/login.scss',
     'users/password.scss',
     'users/registrations.scss',
-    'pages.js'
+    'feedbacks.css',
+
+    'pages.js',
+    'feedbacks.js',
 ]

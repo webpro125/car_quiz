@@ -1,0 +1,31 @@
+h1.text-center Feedback Form
+.container.content-xs
+  .row
+    .col-md-offset-1.col-md-10
+      h5.margin-bottom-30 We would love to hear your thoughts, concerns or problems with anything so we can improve.
+      = simple_form_for @feedback do |f|
+        = f.error_notification
+        = f.label 'Feedback type', required: true
+        = f.input :feedback_type,
+                  :collection => [['comments', 'Comments'], ['bug_reports', 'Bug Reports'], ['questions', 'Questions']],
+                  :label_method => :last,
+                  :value_method => :first,
+                  :as => :radio_buttons,
+                  :item_wrapper_class => 'radio-inline',
+                  :label => false
+        .row
+          .col-md-8
+            = f.input :content, label: 'Describe Feedback', input_html: {rows: 5}, required: true
+        .row
+          .col-md-12
+            = f.label :Name, required: true
+          .col-md-3
+            = f.input :first_name, label: false, placeholder: 'First Name'
+          .col-md-3
+            = f.input :last_name, label: false, placeholder: 'Last Name'
+        .row
+          .col-md-6
+            = f.input :email, required: true
+        .row
+          .col-md-offset-3.col-md-9
+            = f.button :submit, "Submit your feedback", class: 'btn-u btn-u-blue rounded'
