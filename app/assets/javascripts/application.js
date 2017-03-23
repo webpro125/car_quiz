@@ -12,7 +12,7 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require bootstrap
+//= require bootstrap.min
 //= require back-to-top
 //= require smoothScroll
 // require turbolinks
