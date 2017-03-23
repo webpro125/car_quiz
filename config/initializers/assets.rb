@@ -14,7 +14,10 @@ Rails.application.config.assets.precompile +=  [
     'users/password.scss',
     'users/registrations.scss',
     'feedbacks.css',
-
+    'cars.css',
+]
+Rails.application.config.assets.precompile +=  [
     'pages.js',
     'feedbacks.js',
+    'cars.js'
 ]

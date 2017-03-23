@@ -18,6 +18,6 @@
           = link_to 'Take your quiz!', '#', class: 'btn-u btn-u-blue btn-u-lg rounded btn-block'
   = link_to 'Submit feedback', new_feedback_path, class: 'btn btn-default rounded', style: 'position: absolute; right:10px; bottom: 20px'
 
-  = form_tag import_car_path, multipart: true do
-    = file_field_tag :csv_file
-    = submit_tag "Import"
+  /= form_tag import_car_path, multipart: true do
+  /  = file_field_tag :csv_file
+  /  = submit_tag "Import"

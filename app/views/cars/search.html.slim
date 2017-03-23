@@ -1,0 +1,120 @@
+h1.text-center Quiz
+.container.content-xs
+  = search_form_for @q, url: cars_path do |f|
+    table.table.search-table
+      tr
+        td
+          = image_tag 'quiz/quiz-zip-code.png', class: 'img-responsive margin-right-20', style: 'display: inline-block'
+        td
+          = f.label 'Zip code?'
+        td
+          = f.search_field :id_eq, class: 'form-control'
+        td
+      tr
+        td
+        td= f.label 'What is your preferred mileage range?'
+        td
+          .radio
+            label
+              = f.radio_button :mileage_lt, 30000, :checked => true
+              | < 30,000
+          .radio
+            label
+              = f.radio_button :mileage_lt, 50000
+              | < 50,000
+          .radio
+            label
+              = f.radio_button :mileage_lt, 100000
+              | < 100,000
+          .radio
+            label
+              = f.radio_button :mileage_gteq, 100000
+              | + 100,000
+        td= image_tag 'quiz/quiz-range.png', class: 'img-responsive'
+      tr
+        td= image_tag 'quiz/quiz-type.png', class: 'img-responsive'
+        td= f.label 'What type of car are you looking for?'
+        td
+          .radio
+            label
+              = f.radio_button :vehicle_type_eq, 'Truck', :checked => true
+              | Truck
+          .radio
+            label
+              = f.radio_button :vehicle_type_eq, 'Luxury'
+              | Luxury
+          .radio
+            label
+              = f.radio_button :vehicle_type_eq, 'Sport'
+              | Sport
+          .radio
+            label
+              = f.radio_button :vehicle_type_eq, 'Family'
+              | Family
+          .radio
+            label
+              = f.radio_button :vehicle_type_eq, 'SUB'
+              | SUB
+        td
+      tr
+        td
+        td= f.label 'How many seats do you prefer?'
+        td
+          .radio
+            label
+              = f.radio_button :seat_number_eq, 2, :checked => true
+              | 2
+          .radio
+            label
+              = f.radio_button :seat_number_eq, 4
+              | 4-5
+          .radio
+            label
+              = f.radio_button :seat_number_gteq, 6
+              | 6+
+        td= image_tag 'quiz/quiz-seat.png', class: 'img-responsive'
+      tr
+        td= image_tag 'quiz/quiz-wd.png', class: 'img-responsive'
+        td= f.label 'Do you prefer 4WD or 2WD?'
+        td
+          .radio
+            label
+              = f.radio_button :wd_eq, '2WD', :checked => true
+              | 2WD
+          .radio
+            label
+              = f.radio_button :wd_eq, '4WD'
+              | 4WD
+        td
+      tr
+        td
+        td= f.label 'What color do you prefer?'
+        td
+          - ['White', 'Black', 'Red', 'Blue', 'Green', 'Orange', 'Gray', 'Other'].each do |color|
+            .radio
+              label
+                = f.radio_button :color_eq, color.upcase
+                = color
+        td= image_tag 'quiz/quiz-color.png', class: 'img-responsive'
+      tr
+        td= image_tag 'quiz/quiz-year.png', class: 'img-responsive'
+        td= f.label 'Preferred year of vehicle?'
+        td
+          - ['1980-1989', '1990-1999', '2000-2009', '2010-2018'].each do |year|
+            .radio
+              label
+                = f.radio_button :color_eq, year
+                = year
+        td
+      tr
+        td
+        td= f.label 'What color do you prefer?'
+        td
+          - ['Automatic', 'Manual'].each do |am|
+            .radio
+              label
+                = f.radio_button :car_type_eq, am
+                = am
+        td= image_tag 'quiz/quiz-am.png', class: 'img-responsive'
+
+    = f.submit "Finde your dream car!", class: 'mrg20T btn-u btn-u-blue btn-u-lg rounded'
