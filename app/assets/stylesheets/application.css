@@ -15,8 +15,7 @@
  *= require bootstrap-import
  *= require font-awesome
  *= require app
- *= require blocks
- *= require style
+ 
  *= require header-v6
  *= require animate
  */
