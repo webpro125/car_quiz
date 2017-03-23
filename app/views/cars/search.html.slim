@@ -35,26 +35,11 @@ h1.text-center Quiz
         td= image_tag 'quiz/quiz-type.png', class: 'img-responsive'
         td= f.label 'What type of car are you looking for?'
         td
-          .radio
-            label
-              = f.radio_button :vehicle_type_eq, 'Truck', :checked => true
-              | Truck
-          .radio
-            label
-              = f.radio_button :vehicle_type_eq, 'Luxury'
-              | Luxury
-          .radio
-            label
-              = f.radio_button :vehicle_type_eq, 'Sport'
-              | Sport
-          .radio
-            label
-              = f.radio_button :vehicle_type_eq, 'Family'
-              | Family
-          .radio
-            label
-              = f.radio_button :vehicle_type_eq, 'SUB'
-              | SUB
+          - ['Truck', 'Luxury', 'Sport', 'Family', 'SUB'].each do |data|
+            .radio
+              label
+                = f.radio_button :vehicle_type_eq, data
+                = data
         td
       tr
         td
@@ -77,14 +62,11 @@ h1.text-center Quiz
         td= image_tag 'quiz/quiz-wd.png', class: 'img-responsive'
         td= f.label 'Do you prefer 4WD or 2WD?'
         td
-          .radio
-            label
-              = f.radio_button :wd_eq, '2WD', :checked => true
-              | 2WD
-          .radio
-            label
-              = f.radio_button :wd_eq, '4WD'
-              | 4WD
+          - ['2WD', '4WD'].each do |data|
+            .radio
+              label
+                = f.radio_button :wd_eq, data
+                = data
         td
       tr
         td

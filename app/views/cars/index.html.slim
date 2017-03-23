@@ -1,0 +1,15 @@
+.container.content-xs
+  h1.text-center.margin-bottom-30 Suggestions
+  .row.clients-page
+    .col-md-10
+      h3
+        | Cisco Systems, Inc
+      p
+        | At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati
+      p
+        | Olerano ipsum dolor sit amet, consectetur adipiscing elit. Ut non libero magna edetquam lacus. Fusce condimentum eleifend enim a sint occaecati feugiat..
+    .col-md-2
+      img.img-responsive.hover-effect[src="" alt=""]
+  /= form_tag import_car_path, multipart: true do
+  /  = file_field_tag :csv_file
+  /  = submit_tag "Import"
