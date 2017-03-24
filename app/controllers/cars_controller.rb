@@ -8,6 +8,10 @@ class CarsController < ApplicationController
   end
 
   def index
+    if params[:q][:year].present?
+      params[:p].delete(:year)
+    end
+
     @q = Car.search(params[:q])
     # result = session[:search_params] && params[:q]
     unless session[:search_params].to_a == params[:q].to_a
