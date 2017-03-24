@@ -29,10 +29,10 @@ class CarsController < ApplicationController
   def create_quiz params
     quiz = Quiz.new
     if params.has_key?(:mileage_lt)
-      quiz.mileage = params[:mileage_lt]
+      quiz.mileage = params[:mileage_lt].to_i - 1
     end
     if params.has_key?(:mileage_gteq)
-      quiz.mileage = params[:mileage_gteq]
+      quiz.mileage = params[:mileage_gteq].to_i + 1
     end
 
     if params.has_key?(:vehicle_type_eq)
