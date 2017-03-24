@@ -1,6 +1,6 @@
 .container.content-xs
   h1.text-center.margin-bottom-40 Management Dashboard
-  = search_form_for @q, url: cars_path, class: 'form-horizontal' do |f|
+  = search_form_for @q, url: cars_path, class: 'form-horizontal margin-bottom-30' do |f|
     .row
       .col-md-1
         = f.label 'Date Range', class: 'control-label'
@@ -9,7 +9,7 @@
       .col-md-2
         = f.search_field :created_at_lteq, class: 'form-control', id: 'finish', placeholder: 'To'
 
-  h2 Quiz Results
+  h2.margin-bottom-20 Quiz Results
   h5
     | Total Submitted quizzes:
     b= ' ' + @quizzes.count.to_s
@@ -83,7 +83,7 @@
           tr
             th[colspan="2" ] What type of car are you looking for?
         tbody
-          - ['White', 'Black', 'Red', 'Blue', 'Green', 'Orange', 'Gray', 'Other'].each do |data|
+          - ['White', 'Black', 'Blue', 'Brown', 'Burgundy', 'Gold', 'Gray', 'Green', 'Red', 'Silver', 'Tan', 'Yellow'].each do |data|
             tr
               td= data
               td= @quizzes.where(color: data.upcase).count
