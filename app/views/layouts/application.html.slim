@@ -38,6 +38,8 @@ html
                       li[class="#{page_class_active 'pages', 'index'}"]
                         = link_to 'Home', root_path, class: 'dropdown-toggle'
                       li.page-scroll
+                        = link_to 'Submit feedback', new_feedback_path
+                      li.page-scroll
                         = link_to 'Sign-out', destroy_user_session_path, method: :delete
                     - if admin_signed_in?
                       li.page-scroll
