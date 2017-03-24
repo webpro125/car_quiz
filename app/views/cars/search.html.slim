@@ -62,10 +62,10 @@ h1.text-center Quiz
         td= image_tag 'quiz/quiz-wd.png', class: 'img-responsive'
         td= f.label 'Do you prefer 4WD or 2WD?'
         td
-          - ['2WD', '4WD'].each do |data|
+          - ['4WD', '2WD'].each_with_index do |data, index|
             .radio
               label
-                = f.radio_button :wd_eq, data
+                = f.radio_button :wd_eq, index
                 = data
         td
       tr

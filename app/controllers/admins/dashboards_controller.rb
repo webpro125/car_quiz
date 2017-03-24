@@ -24,8 +24,8 @@ class Admins::DashboardsController < ApplicationController
     @mileage_array[3] = ['+100,000', @quizzes.where('mileage >= ? or mileage is ?', 100000, nil).count]
 
     @wds = []
-    ['2WD', '4WD'].each_with_index do |data, index|
-      @wds[index] = [data, @quizzes.where(wd: data).or(@quizzes.where('wd is ?', nil)).count]
+    ['4WD', '2WD'].each_with_index do |data, index|
+      @wds[index] = [data, @quizzes.where(wd: index).or(@quizzes.where('wd is ?', nil)).count]
     end
 
     @seat_numbers = []

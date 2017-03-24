@@ -1,6 +1,6 @@
-require 'csv'
+# require 'csv'
 class Car < ApplicationRecord
-  enum wd: [ '4WD', '2WD' ]
+  # enum wd: ['4WD', '2WD']
 
   def self.import(file)
     spreadsheet = open_spreadsheet(file)
