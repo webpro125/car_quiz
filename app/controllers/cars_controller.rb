@@ -8,8 +8,8 @@ class CarsController < ApplicationController
   end
 
   def index
-    if params[:q][:year].present?
-      params[:p].delete(:year)
+    if params[:q][:year].present? && !params[:q][:year].nil?
+      params[:q].delete(:year)
     end
 
     @q = Car.search(params[:q])

@@ -16,19 +16,19 @@ h1.text-center Quiz
         td
           .radio
             label
-              = f.radio_button :mileage_lt, 30000
+              = f.radio_button :mileage_lt, 30000, id: 'mileage'
               | < 30,000
           .radio
             label
-              = f.radio_button :mileage_lt, 50000
+              = f.radio_button :mileage_lt, 50000, id: 'mileage'
               | < 50,000
           .radio
             label
-              = f.radio_button :mileage_lt, 100000
+              = f.radio_button :mileage_lt, 100000, id: 'mileage'
               | < 100,000
           .radio
             label
-              = f.radio_button :mileage_gteq, 100000
+              = f.radio_button :mileage_gteq, 100000, id: 'mileage'
               | + 100,000
         td= image_tag 'quiz/quiz-range.png', class: 'img-responsive'
       tr
@@ -47,15 +47,15 @@ h1.text-center Quiz
         td
           .radio
             label
-              = f.radio_button :seat_number_eq, 2
+              = f.radio_button :seat_number_eq, 2, id: 'seat_number'
               | 2
           .radio
             label
-              = f.radio_button :seat_number_eq, 4
+              = f.radio_button :seat_number_eq, 4, id: 'seat_number'
               | 4-5
           .radio
             label
-              = f.radio_button :seat_number_gteq, 6
+              = f.radio_button :seat_number_gteq, 6, id: 'seat_number'
               | 6+
         td= image_tag 'quiz/quiz-seat.png', class: 'img-responsive'
       tr
@@ -108,3 +108,9 @@ coffee:
       yearArray = $(this).val().split("-")
       $('input#q_year_gteq').val(yearArray[0])
       $('input#q_year_lteq').val(yearArray[1])
+    $('input#mileage').change ->
+      $('input#mileage').prop('checked', false)
+      $(this).prop('checked', true)
+    $('input#seat_number').change ->
+      $('input#seat_number').prop('checked', false)
+      $(this).prop('checked', true)
