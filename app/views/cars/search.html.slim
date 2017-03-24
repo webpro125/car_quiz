@@ -35,7 +35,7 @@ h1.text-center Quiz
         td= image_tag 'quiz/quiz-type.png', class: 'img-responsive'
         td= f.label 'What type of car are you looking for?'
         td
-          - ['Truck', 'Luxury', 'Sport', 'Family', 'SUB'].each do |data|
+          - ['Truck', 'Luxury', 'Sport', 'Family', 'SUV'].each do |data|
             .radio
               label
                 = f.radio_button :vehicle_type_eq, data
@@ -72,7 +72,7 @@ h1.text-center Quiz
         td
         td= f.label 'What color do you prefer?'
         td
-          - ['White', 'Black', 'Red', 'Blue', 'Green', 'Orange', 'Gray', 'Other'].each do |color|
+          - ['White', 'Black', 'Blue', 'Brown', 'Burgundy', 'Gold', 'Gray', 'Green', 'Red', 'Silver', 'Tan', 'Yellow'].each do |color|
             .radio
               label
                 = f.radio_button :color_eq, color.upcase

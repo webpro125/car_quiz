@@ -17,6 +17,7 @@ class Car < ApplicationRecord
         car = Car.new(
               zip_code: row['Zip Code'],
               year: row['Year'],
+              make: row['Make'],
               model: row['Model'],
               color: row['Color'],
               vin: row['VIN'],

@@ -6,11 +6,12 @@
     .col-md-offset-1.col-md-10
       h1.text-center Home
 
-      p.margin-bottom-30 At CarMax, we understand it's stressful looking for a used car that's the right fit for you.
-        Our goal is to make the process as easy and efficient as possible.
-        This website makes it possible to browse through our suggestions of cars that fit your lifestyle.
-        Feel free to look around the site, and leave any suggestions for improvements in our feedback page.
-        If you're interested in learning more about CarMax, please visit our site.
+      p.margin-bottom-30
+        | At CarMax, we understand it's stressful looking for a used car that's the right fit for you.
+        | Our goal is to make the process as easy and efficient as possible.
+        | This website makes it possible to browse through our suggestions of cars that fit your lifestyle.
+        | Feel free to look around the site, and leave any suggestions for improvements in our feedback page.
+        | If you're interested in learning more about CarMax, please visit our site.
       .text-center.margin-bottom-30
         = image_tag 'home-banner.png', class: 'img-responsive', style: 'display: inline-block'
       .row.text-center.margin-bottom-50
@@ -18,6 +19,6 @@
           = link_to 'Take your quiz!',search_cars_path, class: 'btn-u btn-u-blue btn-u-lg rounded btn-block'
   = link_to 'Submit feedback', new_feedback_path, class: 'btn btn-default rounded', style: 'position: absolute; right:10px; bottom: 20px'
 
-  /= form_tag import_car_path, multipart: true do
-  /  = file_field_tag :csv_file
-  /  = submit_tag "Import"
+  = form_tag import_car_path, multipart: true do
+    = file_field_tag :csv_file
+    = submit_tag "Import"

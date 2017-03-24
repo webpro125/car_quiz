@@ -34,6 +34,12 @@ html
               .collapse.navbar-collapse.navbar-responsive-collapse
                 .menu-container
                   ul.nav.navbar-nav
-                    li.page-scroll
-                      = link_to 'Sign-out', destroy_user_session_path, method: :delete
+                    - if user_signed_in?
+                      li[class="#{page_class_active 'pages', 'index'}"]
+                        = link_to 'Home', root_path, class: 'dropdown-toggle'
+                      li.page-scroll
+                        = link_to 'Sign-out', destroy_user_session_path, method: :delete
+                    - if admin_signed_in?
+                      li.page-scroll
+                        = link_to 'Sign-out', destroy_user_session_path, method: :delete
         = yield
