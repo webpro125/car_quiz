@@ -8,7 +8,7 @@ h1.text-center Quiz
         td
           = f.label 'Zip code?'
         td
-          = f.search_field :id_eq, class: 'form-control'
+          = f.search_field :zip_code_eq, class: 'form-control'
         td
       tr
         td
@@ -85,8 +85,10 @@ h1.text-center Quiz
           - ['1980-1989', '1990-1999', '2000-2009', '2010-2018'].each do |year|
             .radio
               label
-                = f.radio_button :color_eq, year
+                = f.radio_button :year, year, id: 'car_year'
                 = year
+          = f.search_field :year_gteq, class: 'hide'
+          = f.search_field :year_lteq, class: 'hide'
         td
       tr
         td
@@ -100,3 +102,9 @@ h1.text-center Quiz
         td= image_tag 'quiz/quiz-am.png', class: 'img-responsive'
 
     = f.submit "Finde your dream car!", class: 'mrg20T btn-u btn-u-blue btn-u-lg rounded'
+coffee:
+  $ ->
+    $('input#car_year').change ->
+      yearArray = $(this).val().split("-")
+      $('input#q_year_gteq').val(yearArray[0])
+      $('input#q_year_lteq').val(yearArray[1])

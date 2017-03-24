@@ -13,23 +13,27 @@ class Car < ApplicationRecord
       #   user.password = Devise.friendly_token.first(8)
       #   user.skip_confirmation!
       # end
+      unless row[' Price '].nil?
+        car = Car.new(
+              zip_code: row['Zip Code'],
+              year: row['Year'],
+              model: row['Model'],
+              color: row['Color'],
+              vin: row['VIN'],
+              mileage: row['Mileage'],
+              price: row[' Price '].gsub(/[^\d]/, '').to_f,
+              days_to_sell: row['Days to Sell'],
+              seat_number: row['Number of Seats'],
+              vehicle_type: row['Type of Vehicle'],
+              wd: row['4WD or 2WD'],
+              car_type: row['Automatic or Manual'],
+              carmax_link: row['Link']
+        )
 
-      car = Car.new(
-            zip_code: row['Zip Code'],
-            year: row['Year'],
-            model: row['Model'],
-            color: row['Color'],
-            vin: row['VIN'],
-            mileage: row['Mileage'],
-            price: row['Price'],
-            days_to_sell: row['Days to Sell'],
-            seat_number: row['Number of Seat'],
-            vehicle_type: row['Type of Vehicle'],
-            wd: row['4WD or 2WD'],
-            car_type: row['auto or Manual'],
-      )
+        next unless car.save
 
-      next unless car.save
+      end
+
     end
   end
 
@@ -42,4 +46,7 @@ class Car < ApplicationRecord
     end
   end
 
+  def self.currency_to_number currency
+    currency.to_s.gsub(/[$,]/,'').to_f
+  end
 end

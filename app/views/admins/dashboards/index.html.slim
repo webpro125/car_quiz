@@ -1,0 +1,10 @@
+.container.content-xs
+  h1.text-center.margin-bottom-40 Management Dashboard
+  = search_form_for @q, url: cars_path, class: 'form-horizontal' do |f|
+    .row
+      .col-md-1
+        = f.label 'Date Range', class: 'control-label'
+      .col-md-2
+        = f.search_field :created_at_gteq, class: 'form-control datepicker', id: 'start', placeholder: 'From'
+      .col-md-2
+        = f.search_field :created_at_lteq, class: 'form-control', id: 'finish', placeholder: 'To'
