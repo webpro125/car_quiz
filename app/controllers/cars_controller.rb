@@ -8,7 +8,7 @@ class CarsController < ApplicationController
   end
 
   def index
-    if params[:q][:year].present? && !params[:q][:year].nil?
+    if params[:q][:year].present?
       params[:q].delete(:year)
     end
 
@@ -50,8 +50,8 @@ class CarsController < ApplicationController
       quiz.wd = params[:wd_eq]
     end
 
-    if params.has_key?(:year_eq)
-      quiz.year = params[:year_eq]
+    if params.has_key?(:year_gteq) && params.has_key?(:year_lteq)
+      quiz.year = ((params[:year_gteq].to_i + params[:year_lteq].to_i) / 2).round
     end
 
     if params.has_key?(:color_eq)
