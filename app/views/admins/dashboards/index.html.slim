@@ -1,13 +1,13 @@
 .container.content-xs
   h1.text-center.margin-bottom-40 Management Dashboard
-  = search_form_for @q, url: admins_dashboards_path, class: 'form-horizontal margin-bottom-30' do |f|
+  = search_form_for @q, url: admins_dashboards_path, class: 'form-horizontal margin-bottom-20' do |f|
     .row
       .col-md-1
         = f.label 'Date Range', class: 'control-label'
       .col-md-2
-        = f.search_field :created_at_gteq, class: 'form-control datepicker', id: 'start', placeholder: 'From', value: @created_at_from
+        = f.search_field :created_at_gteq, class: 'form-control datepicker margin-bottom-20', id: 'start', placeholder: 'From', value: @created_at_from
       .col-md-2
-        = f.search_field :created_at_lteq, class: 'form-control', id: 'finish', placeholder: 'To', value: @created_at_to
+        = f.search_field :created_at_lteq, class: 'form-control margin-bottom-20', id: 'finish', placeholder: 'To', value: @created_at_to
       .col-md-2
         = f.submit "Submit", class: 'mrg20T btn-u btn-u-blue rounded'
 
