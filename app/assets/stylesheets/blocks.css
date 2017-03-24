@@ -294,6 +294,12 @@
     top: 0;
     margin-bottom: 10px;
   }
+  .radio-inline, .checkbox-inline {
+     display: block;
+  }
+  .radio-inline + .radio-inline {
+      margin-left: 0;
+  }
 }
 
 /*Breadcrumbs Dark and Light*/
