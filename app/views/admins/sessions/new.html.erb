@@ -1,15 +1,25 @@
-<h2>Log in</h2>
+<div class="container content">
+  <div class="row">
+    <div class="col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+      <div class="text-center">
+        <%= image_tag 'logo.png', class: 'img-responsive margin-bottom-10', style: 'display: inline-block;' %>
+      </div>
+      <h2 class="text-center">Management Login</h2>
 
-<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-  <div class="form-inputs">
-    <%= f.input :email, required: false, autofocus: true %>
-    <%= f.input :password, required: false %>
-    <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+        <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'reg-page'}) do |f| %>
+          <%= render 'layouts/flash' %>
+          <div class="form-inputs">
+            <%= f.input :email, required: false, autofocus: true %>
+            <%= f.input :password, required: false %>
+            <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+          </div>
+
+          <div class="form-actions">
+            <%= f.button :submit, "Sign in", class: 'btn-u btn-u-blue rounded' %>
+          </div>
+        <% end %>
+
+        <%#= render "admins/shared/links" %>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Log in" %>
-  </div>
-<% end %>
-
-<%= render "admins/shared/links" %>
+</div>

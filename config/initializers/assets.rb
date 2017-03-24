@@ -16,6 +16,7 @@ Rails.application.config.assets.precompile +=  [
     'feedbacks.css',
     'cars.css',
     'admins/dashboards.css',
+    'admins/sessions.css',
 ]
 Rails.application.config.assets.precompile +=  [
     'pages.js',

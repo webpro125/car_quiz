@@ -8,3 +8,93 @@
         = f.search_field :created_at_gteq, class: 'form-control datepicker', id: 'start', placeholder: 'From'
       .col-md-2
         = f.search_field :created_at_lteq, class: 'form-control', id: 'finish', placeholder: 'To'
+
+  h2 Quiz Results
+  h5
+    | Total Submitted quizzes:
+    b= ' ' + @quizzes.count.to_s
+
+  .row
+    .col-md-6
+      table.table.table-striped
+        thead
+          tr
+            th[colspan="2" ] What is your preferred mileage range?
+        tbody
+          - [30000, 50000, 100000].each do |data|
+            tr
+              td= '<' + number_with_delimiter(data, :delimiter => ',')
+              td= @quizzes.where('mileage < ?', data).count
+          tr
+            td +100,000
+            td= @quizzes.where('mileage >= ?', 100000).count
+      table.table.table-striped
+        thead
+          tr
+            th[colspan="2" ] What is your preferred mileage range?
+        tbody
+          - ['2WD', '4WD'].each do |data|
+            tr
+              td= data
+              td= @quizzes.where(wd: data).count
+      table.table.table-striped
+        thead
+          tr
+            th[colspan="2" ] How many seats do you prefer?
+        tbody
+          tr
+            td 2
+            td= @quizzes.where(seat_number: 2).count
+          tr
+            td 4-5
+            td= @quizzes.where(seat_number: 4).count
+          tr
+            td 6+
+            td= @quizzes.where('seat_number >= ?', 6).count
+      table.table.table-striped
+        thead
+          tr
+            th[colspan="2" ] Preferred year of vehicle?
+        tbody
+          tr
+            td 1980 - 1989
+            td= @quizzes.where('year >= 1980 and year <= 1989').count
+          tr
+            td 1990 - 1999
+            td= @quizzes.where('year >= 1990 and year <= 1999').count
+          tr
+            td 2000 - 2009
+            td= @quizzes.where('year >= 2000 and year <= 2009').count
+          tr
+            td 2010 - 2018
+            td= @quizzes.where('year >= 2010 and year <= 2018').count
+    .col-md-6
+      table.table.table-striped
+        thead
+          tr
+            th[colspan="2" ] What type of car are you looking for?
+        tbody
+          - ['Truck', 'Luxury', 'Sport', 'Family', 'SUV'].each do |data|
+            tr
+              td= data
+              td= @quizzes.where(vehicle_type: data).count
+      table.table.table-striped
+        thead
+          tr
+            th[colspan="2" ] What type of car are you looking for?
+        tbody
+          - ['White', 'Black', 'Red', 'Blue', 'Green', 'Orange', 'Gray', 'Other'].each do |data|
+            tr
+              td= data
+              td= @quizzes.where(color: data.upcase).count
+
+      table.table.table-striped
+        thead
+          tr
+            th[colspan="2" ] What type of car are you looking for?
+        tbody
+          - ['Automatic', 'Manual'].each do |data|
+            tr
+              td= data
+              td= @quizzes.where(car_type: data).count
+
