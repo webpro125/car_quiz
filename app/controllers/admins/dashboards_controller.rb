@@ -12,8 +12,8 @@ class Admins::DashboardsController < ApplicationController
       @created_at_from = (Date.parse params[:q][:created_at_gteq]).strftime("%d/%m/%Y")
     end
 
-    if params[:q].present? && params[:q][:created_at_lteq].present?
-      @created_at_to = (Date.parse params[:q][:created_at_lteq]).strftime("%d/%m/%Y")
+    if params[:q].present? && params[:q][:created_at_end_of_day_lteq].present?
+      @created_at_to = (Date.parse params[:q][:created_at_end_of_day_lteq]).strftime("%d/%m/%Y")
     end
 
     @mileage_array = []
