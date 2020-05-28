@@ -55,7 +55,7 @@ gem 'roo', '~> 2.7.0'
 gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
 gem 'bootstrap-sass', '~> 3.3.7'
 gem 'smarter_csv', '~> 1.1'
-gem 'kaminari', '~> 1.0', '>= 1.0.1'
+gem 'kaminari', '~> 1.2'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
